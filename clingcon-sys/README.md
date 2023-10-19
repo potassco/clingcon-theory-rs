@@ -2,7 +2,6 @@
 
 Rust raw FFI bindings to the C API of [clingcon](https://github.com/potassco/clingcon) library.
 
-
 You have to define the environment variable `CLINGCON_LIBRARY_PATH` for example:
 
 ```sh
