@@ -9,8 +9,8 @@ repository = "https://github.com/potassco/clingcon-theory-sys"
 # documentation = "https://docs.rs/clingcon-plugin"
 
 [dependencies]
-clingo = "0.7.0"
-clingo-sys = "0.7.0"
+clingo = { git = "https://github.com/potassco/clingo-rs.git", branch = "st/wip" }
+clingo-sys = "=0.7.3"
 clingcon-sys = { path = "../clingcon-sys"}
 
 [lib]
