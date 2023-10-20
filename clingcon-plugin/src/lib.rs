@@ -1,11 +1,10 @@
 extern crate clingcon_sys;
 extern crate clingo;
 extern crate clingo_sys;
-use clingo::ast;
-use clingo::theory::{Theory, TheoryValue};
 use clingo::{
-    FunctionHandler, GenericControl, GroundProgramObserver, Id, Logger, Model, Options, Propagator,
-    Statistics, Symbol,
+    ast,
+    theory::{Theory, TheoryValue},
+    ControlCtx, GenericControl, Id, Model, Options, Statistics, Symbol,
 };
 use clingo_sys::clingo_ast;
 use clingo_sys::clingo_control;
@@ -113,12 +112,9 @@ impl<'a> Theory<'a> for ConTheory {
         })
     }
     /// registers the theory with the control
-    fn register<L, P, O, F>(&mut self, ctl: &mut GenericControl<L, P, O, F>) -> bool
+    fn register<Ctx>(&mut self, ctl: &mut GenericControl<Ctx>) -> bool
     where
-        L: Logger,
-        P: Propagator,
-        O: GroundProgramObserver,
-        F: FunctionHandler,
+        Ctx: ControlCtx,
     {
         let nn: NonNull<clingo_control> = ctl.into();
         unsafe { clingcon_sys::clingcon_register(self.theory.as_ptr(), nn.as_ptr()) }
@@ -143,12 +139,9 @@ impl<'a> Theory<'a> for ConTheory {
     }
 
     /// prepare the theory between grounding and solving
-    fn prepare<L, P, O, F>(&mut self, ctl: &mut GenericControl<L, P, O, F>) -> bool
+    fn prepare<Ctx>(&mut self, ctl: &mut GenericControl<Ctx>) -> bool
     where
-        L: Logger,
-        P: Propagator,
-        O: GroundProgramObserver,
-        F: FunctionHandler,
+        Ctx: ControlCtx,
     {
         let nn: NonNull<clingo_control> = ctl.into();
         unsafe { clingcon_sys::clingcon_prepare(self.theory.as_ptr(), nn.as_ptr()) }
@@ -199,7 +192,7 @@ impl<'a> Theory<'a> for ConTheory {
 }
 
 unsafe extern "C" fn unsafe_program_builder_add(
-    statement: *const clingo_sys::clingo_ast_t,
+    statement: *mut clingo_sys::clingo_ast_t,
     data: *mut ::std::os::raw::c_void,
 ) -> bool {
     let builder = data as *mut clingo_sys::clingo_program_builder;
