@@ -143,7 +143,7 @@ pub struct clingcon_theory {
 pub type clingcon_theory_t = clingcon_theory;
 #[doc = "! Callback to rewrite statements (see ::clingcon_rewrite_ast)."]
 pub type clingcon_ast_callback_t = ::std::option::Option<
-    unsafe extern "C" fn(ast: *const clingo_ast_t, data: *mut ::std::os::raw::c_void) -> bool,
+    unsafe extern "C" fn(ast: *mut clingo_ast_t, data: *mut ::std::os::raw::c_void) -> bool,
 >;
 extern "C" {
     #[doc = "! Creates the theory."]
