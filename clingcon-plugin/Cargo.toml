@@ -9,9 +9,9 @@ repository = "https://github.com/potassco/clingcon-theory-sys"
 # documentation = "https://docs.rs/clingcon-plugin"
 
 [dependencies]
-clingo = { git = "https://github.com/potassco/clingo-rs.git", branch = "st/wip" }
+clingo = "=0.8.0"
 clingo-sys = "=0.7.2"
-clingcon-sys = { path = "../clingcon-sys"}
+clingcon-sys = { path = "../clingcon-sys" }
 
 [lib]
-crate-type = ["cdylib", "rlib"] 
+crate-type = ["cdylib", "rlib"]
