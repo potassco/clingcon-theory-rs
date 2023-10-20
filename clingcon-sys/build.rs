@@ -3,29 +3,35 @@ fn main() {
     // checkout clingcon
     // git clone https://github.com/potassco/clingcon
     // cd clingcon
-    // git checkout v5.0.0
+    // git checkout v5.2.0
     // copy clingo.h
 
     // // Configure and generate bindings.
     // let bindings = bindgen::Builder::default()
     //     .header("clingcon/libclingcon/clingcon.h")
-    //     .whitelist_type("clingcon_theory_t")
-    //     .whitelist_function("clingcon_create")
-    //     .whitelist_function("clingcon_destroy")
-    //     .whitelist_function("clingcon_register")
-    //     .whitelist_function("clingcon_rewrite_ast")
-    //     .whitelist_function("clingcon_prepare")
-    //     .whitelist_function("clingcon_register_options")
-    //     .whitelist_function("clingcon_validate_options")
-    //     .whitelist_function("clingcon_on_model")
-    //     .whitelist_function("clingcon_on_statistics")
-    //     .whitelist_function("clingcon_lookup_symbol")
-    //     .whitelist_function("clingcon_get_symbol")
-    //     .whitelist_function("clingcon_assignment_begin")
-    //     .whitelist_function("clingcon_assignment_next")
-    //     .whitelist_function("clingcon_assignment_has_value")
-    //     .whitelist_function("clingcon_assignment_get_value")
-    //     .whitelist_function("clingcon_configure")
+    //     .allowlist_type("clingo_symbol_t")
+    //     .allowlist_type("clingcon_value_type_t")
+    //     .allowlist_type("clingcon_value__bindgen_ty_1")
+    //     .allowlist_type("clingcon_value_t")
+    //     .allowlist_type("clingcon_theory")
+    //     .allowlist_type("clingcon_theory_t")
+    //     .allowlist_type("clingcon_ast_callback_t")
+    //     .allowlist_function("clingcon_create")
+    //     .allowlist_function("clingcon_register")
+    //     .allowlist_function("clingcon_rewrite_ast")
+    //     .allowlist_function("clingcon_prepare")
+    //     .allowlist_function("clingcon_destroy")
+    //     .allowlist_function("clingcon_configure")
+    //     .allowlist_function("clingcon_register_options")
+    //     .allowlist_function("clingcon_validate_options")
+    //     .allowlist_function("clingcon_on_model")
+    //     .allowlist_function("clingcon_lookup_symbol")
+    //     .allowlist_function("clingcon_get_symbol")
+    //     .allowlist_function("clingcon_assignment_begin")
+    //     .allowlist_function("clingcon_assignment_next")
+    //     .allowlist_function("clingcon_assignment_has_value")
+    //     .allowlist_function("clingcon_assignment_get_value")
+    //     .allowlist_function("clingcon_on_statistics")
     //     .size_t_is_usize(true)
     //     .generate()
     //     .unwrap();
